@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Student
 from .serializers import StudentSerializer
@@ -25,4 +26,8 @@ def export_students_excel(request):
         ws.append([student.name, student.roll, student.city])
 
     wb.save(response)
+    wb.save(response)
     return response
+
+def index(request):
+    return render(request, 'student/index.html')
